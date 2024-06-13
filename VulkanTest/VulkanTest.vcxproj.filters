@@ -460,5 +460,13 @@
     <None Include="Physics\ComputeShaders\CollisionDetection.comp">
       <Filter>Resource Files\Shaders\Physics</Filter>
     </None>
+    <None Include="Physics\ComputeShaders\BoxBoxCD.glsl">
+      <Filter>Resource Files\Shaders\Physics</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Physics\ComputeShaders\CollisionDetectionHeader.glsl">
+      <Filter>Resource Files\Shaders\Physics</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

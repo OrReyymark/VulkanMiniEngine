@@ -42,7 +42,7 @@ CComputePipeline::CComputePipeline(CVulkanDevice* device_, std::string name_, Vk
 	compute_pipeline_info.stage = shader_info_;
 	compute_pipeline_info.basePipelineHandle = VK_NULL_HANDLE;
 
-	if (!vkCreateComputePipelines(p_Device->device, VK_NULL_HANDLE, 1, &compute_pipeline_info, VK_NULL_HANDLE, &this->p_Pipeline))
+	if (vkCreateComputePipelines(p_Device->device, VK_NULL_HANDLE, 1, &compute_pipeline_info, VK_NULL_HANDLE, &this->p_Pipeline) != VK_SUCCESS)
 	{
 		throw std::runtime_error("Compute Pipeline '" + name_ + "' failed to create!'");
 		return;

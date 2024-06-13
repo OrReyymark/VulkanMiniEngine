@@ -31,6 +31,16 @@ layout(set = 0, binding = 2) buffer _CollisionBuffer
 	Collision collisions[];
 };
 
+layout(set = 0, binding = 3) buffer _CollisionCountBuffer
+{
+	uint collisions_count[];
+};
+
+void AppendCollision(Collision collision)
+{
+	collisions[atomicAdd(collisions_count[0], 1)] = collision;
+}
+
 
 layout (local_size_x = 8, local_size_y = 8, local_size_z = 1) in;
 void main()

@@ -273,8 +273,21 @@
     <None Include="Engine\Shaders\RayTracing\RayGenerator.glsl" />
     <None Include="Engine\Shaders\Textures.glsl" />
     <None Include="EUI\Shaders\widget.vert" />
+    <None Include="Physics\ComputeShaders\BoxBoxCD.glsl" />
     <None Include="Physics\ComputeShaders\CollisionDetection.comp" />
     <None Include="PixelShader.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Physics\ComputeShaders\CollisionDetectionHeader.glsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4.0</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

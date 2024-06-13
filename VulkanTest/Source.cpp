@@ -4,6 +4,7 @@
 #include "Scene/CScene.h"
 #include "Scene/Planet/CPlanet.h"
 #include "EUI/UiWidgetRenderer.h"
+#include "Physics/PhysicsPipeline.h"
 
 CApplication* Application;
 
@@ -102,6 +103,7 @@ CScene* Scene;
 ControledCamera* Camera;
 CArmature* doric;
 CSpotLight* spot_light;
+Physics::CPhysicsPipeline* PhysicsPipeline;
 
 CPlanet* planet;
 
@@ -109,6 +111,8 @@ UiWidgetRenderer* UiRenderer;
 
 Void Engine::Init_Event(CGpuUploadTask* upload_task_)
 {
+	PhysicsPipeline = new Physics::CPhysicsPipeline(graphics->p_Device);
+
 	//UiRenderer = new UiWidgetRenderer();
 
 	Scene = new CScene(L"Example/scene.fbx", graphics);

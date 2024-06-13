@@ -101,7 +101,7 @@ namespace Physics
 				p_CollisionsCountBuffer = new CStorgeBuffer<Uint>(device_, 1);
 
 
-				p_CollisionDetectionPipeline = new CComputePipeline(device_, "CollisionDetection", Engine::CompileGLSLShader(device_->device, L"Physics/ComputeShaders/CollisionDetection.compute", VK_SHADER_STAGE_COMPUTE_BIT), p_InputLayout);
+				p_CollisionDetectionPipeline = new CComputePipeline(device_, "CollisionDetection", Engine::CompileGLSLShader(device_->device, L"Physics/ComputeShaders/CollisionDetection.comp", VK_SHADER_STAGE_COMPUTE_BIT), p_InputLayout);
 			
 				p_TransformFeedbackIntermidiate = new CIntermidiateBuffer(device_, sizeof(GpuTypes::RigidBody) * MaximumRigidBodyPerChunk, CIntermidiateBuffer::Usage::Download);
 			
